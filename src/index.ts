@@ -72,12 +72,19 @@ Rules:
 `,
 });
 
-const userInput =
-  process.argv.slice(2).join(" ") ||
-  "Find pediatricians within 30 minutes of 123 Main St, San Francisco";
+async function main() {
+  const userInput =
+    process.argv.slice(2).join(" ") ||
+    "Find pediatricians within 30 minutes of 123 Main St, San Francisco";
 
-const result = await agent.invoke({
-  messages: [{ role: "user", content: userInput }],
+  const result = await agent.invoke({
+    messages: [{ role: "user", content: userInput }],
+  });
+
+  console.log(result.messages.at(-1)?.content);
+}
+
+main().catch((error) => {
+  console.error("Agent failed:", error);
+  process.exit(1);
 });
-
-console.log(result.messages.at(-1)?.content);
