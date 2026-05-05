@@ -1,6 +1,9 @@
 import "dotenv/config";
 import { createAgent, tool } from "langchain";
 import { z } from "zod";
+import { ChatOllama } from "@langchain/ollama";
+import getModel from "./getModel";
+
 
 type Pediatrician = {
   name: string;
@@ -57,8 +60,9 @@ const findPediatricians = tool(
   }
 );
 
+
 const agent = createAgent({
-  model: "openai:gpt-4o-mini",
+  model: getModel(),
   tools: [findPediatricians],
   systemPrompt: `
 You are a healthcare location search assistant.
