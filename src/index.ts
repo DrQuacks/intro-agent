@@ -86,6 +86,14 @@ async function main() {
   });
 
   console.log(result.messages.at(-1)?.content);
+
+  for (const message of result.messages) {
+    console.log("\n--- MESSAGE ---");
+    console.log(message);
+  }
+
+  console.log("\n--- FINAL ANSWER ---");
+  console.log(result.messages.at(-1)?.content);
 }
 
 main().catch((error) => {

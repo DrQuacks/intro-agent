@@ -12,7 +12,7 @@ function getModel() {
   }
 
   return new ChatOllama({
-    model: process.env.OLLAMA_MODEL ?? "llama3.2",
+    model: process.env.OLLAMA_MODEL ?? "qwen2.5:7b",
     temperature: 0,
   });
 }

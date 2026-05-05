@@ -1,4 +1,9 @@
 {
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "@langchain/ollama": "^1.2.7",
     "@langchain/openai": "^1.4.5",
